@@ -1,0 +1,185 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: rgb(38 39 42);
+    color: white;
+    display: flex;
+    justify-content: center;
+    
+}
+.crud{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.head h2{
+    font-size: 30px;
+    font-weight: 600;
+    padding: 15px 0;
+    color: white;
+}
+input{
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 5px;
+    margin: 8px 0;
+    border-radius: 6px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgb(13 192 67);
+    transition: .3s;
+color: white;}
+input:focus{
+    scale: 1.;
+    background-color: transparent;
+    border: 1px solid rgb(13 192 67);
+    color: white;
+
+}
+
+input::placeholder{
+    color: rgb(141, 139, 139);
+    margin: 5px;
+}
+.prices{
+    width: 100%;
+    /* padding: 10px; */
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 4px;
+    align-items: center;
+    box-sizing: border-box;
+}
+.prices input{
+    margin: 0 5px;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: rgb(13 192 67);
+    color: white;
+    font-size: 18px;
+    transition: 0.5s;
+}
+button:hover{
+    letter-spacing: 1px;
+}
+.ptns{
+    display: flex;
+    justify-content: space-between;
+}  
+.ptns button{
+    width: 45%;
+    
+} 
+.outputs{
+}
+.small{
+    background-color: red;
+    padding: 8px 10px;
+    border-radius: 7px;
+}
+.small::before{
+    content: 'total:';
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid rgb(13 192 67);
+    color: white;
+    
+}
+.mainTable{
+    overflow-x:auto
+}
+table tr th{
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 1px solid rgb(13 192 67);
+}
+tbody td {
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid rgb(13 192 67);
+}
+tbody td button:hover{
+    letter-spacing: 0;
+}
+#error{
+    background-color: black;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    display: none;
+    border-radius: 10px;
+}
+#error h1{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 15px;
+    width: 15px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    background-color: red;
+}
+#error p{
+    color: white;
+    font-size: 20px;
+   text-align: center;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#error p span{
+    color: red;
+    margin: 0 5px;
+}
+@media only screen and (max-width: 600px) {
+    .head h2{
+        font-size: 18px;
+    }
+    .prices{
+        flex-direction: column;
+    }
+    .prices input{
+        margin: 5px 0;
+    }
+    .small{
+        width: 50%;
+        margin: 10px 0;
+    }
+    button{
+        width: 100%;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+    #error{
+        width: 80%;
+        font-size: 16px;
+    }
+}
