@@ -1,70 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Management</title>
-    <link rel="icon" href="product-design.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="product-design.png" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-
-</head>
-<body>
-    <div id="error"><h1 onclick="closeError()"><img src="/close icon.svg" alt=""></h1> <p>You must fill in the <span>Title</span> , <span> Price </span> , <span> Category</span> </p></div>
+  </head>
+  <body>
+    <div id="error">
+      <h1 onclick="closeError()">
+        <img class="closeIcon" src="/close icon.svg" alt="" />
+      </h1>
+      <div class="contentError">
+      
+          <img class="errorIcon" src="/error icon.png" alt="" />
+          <p>
+            You must fill in the <span>Title</span> , <span> Price </span> ,
+            <span> Category</span>
+          </p>
+      </div>
+    </div>
     <div class="crud">
-        <div class="head">
-            <h2>Product Management System</h2>
-            
+      <div class="head">
+        <h2>Product Management System</h2>
+      </div>
+      <div class="inuts">
+        <input type="text" id="title" placeholder="title" />
+
+        <div class="prices">
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="price"
+            placeholder="price"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="taxes"
+            placeholder="taxes"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="ads"
+            placeholder="ads"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="discount"
+            placeholder="discount"
+          />
+          <div id="total" class="small"></div>
         </div>
-        <div class="inuts">
-            <input type="text" id="title" placeholder="title">
-
-            <div class="prices">
-                <input onkeyup="getTotal()" type="number" id="price" placeholder="price">
-                <input onkeyup="getTotal()" type="number" id="taxes" placeholder="taxes">
-                <input onkeyup="getTotal()" type="number" id="ads" placeholder="ads">
-                <input onkeyup="getTotal()" type="number" id="discount" placeholder="discount">
-                <div id="total" class="small"></div>
-            </div>
-            <input type="number" id="count" placeholder="count">
-            <input type="text" id="category" placeholder="category">
-            <button type="submit" id="create">Create</button>
+        <input type="number" id="count" placeholder="count" />
+        <input type="text" id="category" placeholder="category" />
+        <button type="submit" id="create">Create</button>
+      </div>
+      <div class="outputs">
+        <input
+          onkeyup="searchData(this.value)"
+          id="search"
+          type="text"
+          placeholder="Search By title"
+        />
+        <div class="ptns">
+          <button onclick="getSearchMoode(this.id)" id="searchTitle">
+            Search By Title
+          </button>
+          <button onclick="getSearchMoode(this.id)" id="searchCategory">
+            Search By Category
+          </button>
         </div>
-        <div class="outputs">
-            <input onkeyup="searchData(this.value)" id="search" type="text" placeholder="Search By title">
-            <div class="ptns">
-                <button onclick="getSearchMoode(this.id)" id="searchTitle">Search By Title</button>
-                <button onclick="getSearchMoode(this.id)" id="searchCategory">Search By Category</button>
-            </div>
-            <div id="deleteAll">
-                
-            </div>
-            <div class="mainTable">
-
-                <table id="productTable">
-                    <tr class="headTable">
-                        <th>id</th>
-                        <th>title</th>
-                        <th>price</th>
-                        <th>taxes</th>
-                        <th>asd</th>
-                        <th>discount</th>
-                        <th>total</th>
-                        <th>category</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                    </tr>
-                    <tbody id="tbody">
-                    
-                        
-                    </tbody>
-                </table>
-
-            </div>
-            <button onclick="downloadExcel()">Download as file Excel</button>
-
+        <div id="deleteAll"></div>
+        <div class="mainTable">
+          <table id="productTable">
+            <tr class="headTable">
+              <th>id</th>
+              <th>title</th>
+              <th>price</th>
+              <th>taxes</th>
+              <th>asd</th>
+              <th>discount</th>
+              <th>total</th>
+              <th>category</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+            <tbody id="tbody"></tbody>
+          </table>
         </div>
+        <button onclick="downloadExcel()">Download as file Excel</button>
+      </div>
     </div>
     <script src="/index.js"></script>
-</body>
+  </body>
 </html>

@@ -101,23 +101,31 @@ button:hover{
 }
 table{
     width: 100%;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     margin-top: 20px;
-    border: 1px solid rgb(13 192 67);
+    border: 1px solid ;
     color: white;
-    
+    border-collapse: separate;
+    border-spacing: 0;
 }
+
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+tr:last-child td:last-child { border-bottom-right-radius: 10px; }
+
+tr:first-child td { border-top-style: solid; }
+tr td:first-child { border-left-style: solid; }
 .mainTable{
     overflow-x:auto
 }
 .headTable{
     background-color: var(--blueColor);
-   
+    border-style: none solid solid none;
+    border-radius: 10px 10px 0 0;
 }
 table tr th{
     text-transform: uppercase;
     font-size: 17px;
-    /* border: 1px solid rgb(13 192 67); */
+    border: 1px solid rgba(173, 173, 174, 0.38);
     padding: 10px 0;
     font-weight: 600;
     
@@ -141,7 +149,7 @@ tbody td button:hover{
     background-color: white;
     box-shadow: #6f6f6f -1px 3px 9px 1px;
     width: 30%;
-    height: 30%;
+    height: 35%;
     position: absolute;
     display: flex;
     align-items: center;
@@ -179,25 +187,35 @@ tbody td button:hover{
     background-color: var(--borderColor);
     transition: 0.5s;
 }
-#error h1 img{
+#error h1 .closeIcon{
     width: 100%;
 }
 #error h1:hover{
     transform: rotate(3.142rad);
+}
+.contentError{
+width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  justify-content: center;
+
 }
 #error p{
     color: black;
     font-size: 20px;
    text-align: center;
     width: 90%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    
 }
 #error p span{
     color: red;
     margin: 0 5px;
+}
+.errorIcon{
+    width: 100px;
+    padding-bottom: 20px;
 }
 @media only screen and (max-width: 600px) {
     .head h2{
@@ -220,6 +238,15 @@ tbody td button:hover{
     }
     #error{
         width: 80%;
+        font-size: 16px;
+    }
+}
+/* @media only screen and (max-width: 600px){
+
+} */
+@media(min-width: 601px) and (max-width: 1024px){
+    #error{
+        width: 50%;
         font-size: 16px;
     }
 }
