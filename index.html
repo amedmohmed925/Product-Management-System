@@ -6,9 +6,11 @@
     <title>Product Management</title>
     <link rel="icon" href="product-design.png">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
 </head>
 <body>
-    <div id="error"><h1 onclick="closeError()">X</h1> <p>You must fill in the <span>Title</span> , <span> Price </span> , <span> Category</span> </p></div>
+    <div id="error"><h1 onclick="closeError()"><img src="/close icon.svg" alt=""></h1> <p>You must fill in the <span>Title</span> , <span> Price </span> , <span> Category</span> </p></div>
     <div class="crud">
         <div class="head">
             <h2>Product Management System</h2>
@@ -39,8 +41,8 @@
             </div>
             <div class="mainTable">
 
-                <table>
-                    <tr>
+                <table id="productTable">
+                    <tr class="headTable">
                         <th>id</th>
                         <th>title</th>
                         <th>price</th>
@@ -57,7 +59,10 @@
                         
                     </tbody>
                 </table>
+
             </div>
+            <button onclick="downloadExcel()">Download as file Excel</button>
+
         </div>
     </div>
     <script src="/index.js"></script>

@@ -19,10 +19,12 @@ function getTotal() {
     if (price.value != '') {
         let result = (+price.value + +taxes.value + +ads.value ) - +discount.value
         total.innerHTML = result
-        total.style.backgroundColor ="green"
+        total.style.backgroundColor ="#017aff"
+        total.style.color ="white"
 
     } else {
         total.style.backgroundColor ="red"
+        total.style.color ="white"
         total.innerHTML = ''
 
     }
@@ -222,3 +224,28 @@ function searchData(value) {
     }
 }
 // clean data
+
+function downloadExcel() {
+
+    let table = document.getElementById('productTable');
+    let workbook = XLSX.utils.table_to_book(table, {sheet: "Sheet1"});
+
+    let wbout = XLSX.write(workbook, {bookType: 'xlsx', type: 'binary'});
+
+    function s2ab(s) {
+        let buf = new ArrayBuffer(s.length);
+        let view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) {
+            view[i] = s.charCodeAt(i) & 0xFF;
+        }
+        return buf;
+    }
+
+    let blob = new Blob([s2ab(wbout)], {type: "application/octet-stream"});
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'products.xlsx';
+    a.click();
+    URL.revokeObjectURL(url);
+}
