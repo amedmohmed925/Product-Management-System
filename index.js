@@ -76,8 +76,6 @@ create.onclick = function () {
 
         }
               
-        console.log(dataPro)
-        
         localStorage.setItem('dataPro',JSON.stringify(dataPro))
         
         readData()
